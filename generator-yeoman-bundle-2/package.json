@@ -23,13 +23,14 @@
     "husky": "^3.0.9",
     "lint-staged": "^9.4.3",
     "jest": "^26.1.0",
-    "esbuild": "0.14.39"
+    "esbuild": "0.14.39",
+    "patch-package": "^6.4.7"
   },
   "engines": {
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "yeoman-generator": "^3.1.1",
+    "yeoman-generator": "5.6.1",
     "chalk": "^2.1.0",
     "yosay": "^2.0.2"
   },
@@ -67,7 +68,8 @@
     ]
   },
   "scripts": {
-    "build": "esbuild generators/app/index_org.js --bundle --platform=node --external:electron --external:istextorbinary --external:shelljs --outfile=generators/app/index.js",
+    "prepare": "patch-package",
+    "build": "esbuild generators/app/index_unbundled.js --bundle --platform=node --outfile=generators/app/index.js",
     "pretest": "eslint .",
     "test": "jest",
     "debugg": "yo yeoman-bundle-2"
