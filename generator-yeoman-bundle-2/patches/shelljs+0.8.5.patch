@@ -5,13 +5,13 @@ index f9c6f36..f3ac3ba 100644
 @@ -20,10 +20,8 @@ var common = require('./src/common');
  // Include the docs for all the default commands
  //@commands
- 
+
 -// Load all default commands
 -require('./commands').forEach(function (command) {
 -  require('./src/' + command);
 -});
 +// PATCHED: only the `which` command is used (directly) by Yeoman.
-+require('./src/which' + command);
- 
++require('./src/which');
+
  //@
  //@ ### exit(code)
