@@ -1,81 +1,30 @@
 {
-  "name": "generator-yeoman-bundle-2",
-  "version": "0.0.0",
-  "description": "",
-  "homepage": "",
-  "author": {
-    "name": "Shahar Soel",
-    "email": "shachar.soel@sap.com",
-    "url": ""
-  },
+  "name": "generator-yeoman-bundle-example",
+  "version": "0.1.0",
+  "private": "true",
   "files": [
     "generators"
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
     "yeoman-generator"
   ],
+  "dependencies": {
+  },
   "devDependencies": {
-    "yeoman-test": "^1.7.0",
-    "yeoman-assert": "^3.1.1",
-    "prettier": "^1.19.1",
-    "husky": "^3.0.9",
-    "lint-staged": "^9.4.3",
-    "jest": "^26.1.0",
     "esbuild": "0.14.39",
-    "patch-package": "^6.4.7",
+    "patch-package": "6.4.7",
 
     "yeoman-generator": "5.6.1",
-    "chalk": "^2.1.0",
-    "yosay": "^2.0.2"
+    "chalk": "5.0.1",
+    "yosay": "2.0.2"
   },
   "engines": {
     "npm": ">= 4.0.0"
   },
-  "dependencies": {
-
-  },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "lint-staged": {
-    "*.js": [
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
-    "env": {
-      "jest": true,
-      "node": true
-    },
-    "rules": {
-      "prettier/prettier": "error"
-    },
-    "plugins": [
-      "prettier"
-    ]
-  },
   "scripts": {
     "prepare": "patch-package",
     "build": "esbuild generators/app/index_unbundled.js --bundle --platform=node --outfile=generators/app/index.js",
-    "pretest": "eslint .",
-    "test": "jest",
-    "debugg": "yo yeoman-bundle-2"
-  },
-  "repository": "https://github.com/bd82/yeoman_bundle.git",
-  "license": "Apache-2.0"
+    "local-run": "yo yeoman-bundle-example"
+  }
 }

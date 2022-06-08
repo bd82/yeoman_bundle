@@ -5,36 +5,32 @@ const yosay = require('yosay');
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
     this.log(
       yosay(
-        `Welcome to the exquisite ${chalk.red('generator-yeoman-bundle-2')} generator!`
+        `Welcome to the exquisite ${chalk.red('generator-yeoman-bundle-example')} generator!`
       )
     );
 
     const prompts = [
       {
         type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
+        name: 'shouldCopy',
+        message: 'Would you like to copy the `dummyfile.txt?',
         default: true
       }
     ];
 
     return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
       this.props = props;
     });
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
-  }
-
-  install() {
-     // this.installDependencies();
+    if (this.props.shouldCopy === true) {
+      this.fs.copy(
+        this.templatePath('dummyfile.txt'),
+        this.destinationPath('dummyfile.txt')
+      );
+    }
   }
 };

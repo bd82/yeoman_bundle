@@ -1,3 +1,5 @@
+# TODO: update contents once part of a monorepo
 node_modules
 coverage
 .idea
+/dummyfile.text
